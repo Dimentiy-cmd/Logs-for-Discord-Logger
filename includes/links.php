@@ -4,16 +4,11 @@ if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit();
 } else {
-    include 'config.php';
-    $mysqli = new mysqli($database_host, $database_user, $database_password, $database_name);
-    $pages = $mysqli->query("SELECT name, link FROM a_pages ORDER BY id ASC");
-
-    echo '<nav>';
-    if ($pages) {
-        foreach ($pages as $row) {
-            echo '<a href="' . htmlspecialchars($row['link']) . '">' . htmlspecialchars($row['name']) . '</a>';
-        }
-    }
-    echo '</nav>';
+echo '<nav>
+        <a href="message.php">Все сообщения</a>
+        <a href="del_message.php">Удаленные сообщения</a>
+        <a href="voice.php">Логи ГС каналов</a>
+        <a href="exit.php">Выход с аккаунта</a>
+      </nav>';
 }
 ?>

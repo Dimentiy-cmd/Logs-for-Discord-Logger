@@ -3,9 +3,6 @@ session_start();
 if (isset($_SESSION['username']) == false) {
     header('Location: login.php');
 } else {
-include 'includes/config.php';
-$mysqli = new mysqli($database_host, $database_user, $database_password, $database_name);
-$pages = $mysqli->query("SELECT name, link FROM a_pages ORDER BY id ASC");
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,12 +21,22 @@ $pages = $mysqli->query("SELECT name, link FROM a_pages ORDER BY id ASC");
     </thead>
     <tbody>
     <?php
-      foreach ($pages as $row) {
-          echo '<tr>
-                  <td>' . $row['name'] . '</td>
-                  <td><a href="' . $row['link'] . '">Перейти</a></td>
-                </tr>';
-        }
+      echo '<tr>
+              <td>Все сообщения</td>
+              <td><a href="message.php">Перейти</a></td>
+            </tr>
+            <tr>
+              <td>Удаленные сообщения</td>
+              <td><a href="del_message.php">Перейти</a></td>
+            </tr>
+            <tr>
+              <td>Логи ГС каналов</td>
+              <td><a href="voice.php">Перейти</a></td>
+            </tr>
+            <tr>
+              <td>Выход с аккаунта</td>
+              <td><a href="exit.php">Перейти</a></td>
+            </tr>';
     ?>
     </tbody>
 </table>
