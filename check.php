@@ -2,7 +2,7 @@
 session_start();
 session_set_cookie_params(7200);
 $username = trim($_POST['username']);
-$password = trim($_POST['password']);
+$password = hash('sha256', trim($_POST['password']));
 
 include 'includes/config.php';
 $mysqli = new mysqli($database_host, $database_user, $database_password, $database_name);

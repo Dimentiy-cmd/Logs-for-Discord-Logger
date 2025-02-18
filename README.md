@@ -1,4 +1,4 @@
-# Logs for Discord Logger 1.1
+# Logs for Discord Logger 1.2
 
 ## Русский
 
